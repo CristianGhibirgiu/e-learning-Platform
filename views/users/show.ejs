@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+<div class = "container">
+
+<div class="row">
+	<div class="col-md-4">
+    <div class="card mb-3">
+      <img class="card-img-top" src="<%= user.avatar %>" alt="user profile image">
+      <div class="card-body">
+        <h4 class = "card-title"><a href="/follow/<%= user.id %>">
+					<button id="followBtn" class="btn btn-danger">Follow <%= user.username %></button></a></h4>
+        </div>
+	</div>
+</div>
+<div class = "row">
+  <div class="col-md-12">
+    <ul>
+      <h3>Datele personale ale utilizatorului: <strong><%= user.username %></strong></h3>
+      <hr>
+      <h2>Nume: <%= user.firstName %></h2>
+      <h2>Prenume: <%= user.lastName %></h2>
+      <h2>Email: <a href="mailto:<%= user.email %>"><%= user.email %></a></h2>
+    </ul>
+    <hr>
+
+	</div>
+</div>
+</div>
+</div>
+
+
+<% include ../partials/footer %>

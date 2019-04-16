@@ -1,0 +1,89 @@
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body{
+  margin-bottom: 0; /* Margin bottom de la footer height */
+  font-family: Raleway;
+}
+.delete-form{
+    display: inline;
+}
+.search-bar {
+  padding-left: 8rem;
+  margin: 0 auto;
+}
+i.fa-user,.fa-lock, .fa-address-book,
+  .fa-envelope, .fa-images {
+  font-size: 1rem;
+}
+.fa-arrow-left:before {
+  padding: 2em;
+  font-size: 1.5em;
+}
+b, strong{
+  color: #208000;
+}
+.container-register,
+.container-login,
+.reset-page,
+.forgot-page {
+  width: 25em;
+  height: 10em;
+}
+.container-register h1 {
+  margin: 0 0 20px 0;
+}
+#container-login h1 {
+  margin: 0 0 20px 0;
+}
+#new-notification{
+  color: #3300CC;
+}
+#all-notifications{
+  color: #CC3300;
+}
+.add-new{
+  width: 30%;
+  margin: 25px auto;
+}
+.log-in {
+  background-color: #208000;
+  border: 1px solid transparent;
+  margin-right: 1.2em;
+}
+.sign-up {
+  background-color: #EC5252;
+  border: 1px solid transparent;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #FFF;
+}
+.navbar-dark .navbar-brand {
+    color: #EC5252;
+}
+.navbar-dark .navbar-brand:hover {
+    color: #EC5252;
+}
+#followBtn{
+  width: 100%;
+}
+ol.profile-lecture  {
+  font-size: 1.5em;
+}
+.notificare-stil{
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 1.2em;
+  margin: 2em 0;
+  list-style-type: none;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+.badge{
+  background-color: #208000;
+}

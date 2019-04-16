@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div class = "container container-login">
+  <div class = "col-md-12 text-center">
+      <h1>Login</h1>
+</div>
+<form  action = "/login" method = "POST">
+  <div class="form-group">
+    <label for="InputUsername"><i class="fas fa-user pr-2"></i>Username</label>
+    <input type="text" name = "username" class="form-control" id="InputUsername" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <label for="Password"><i class="fas fa-lock pr-2"></i>Password</label>
+    <input type="password" name = "password" class="form-control" id="Password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-danger btn-block">Login</button>
+</form>
+<br>
+<a href="/forgot">Am uitat parola</a>
+</div>
+
+
+
+
+<% include ./partials/footer %>

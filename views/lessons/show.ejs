@@ -1,0 +1,64 @@
+<% include ../partials/header %>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-9">
+    <div class="card mb-3">
+      <img class="card-img-top" src="<%= lesson.image %>" alt="<%= lesson.name %>">
+      <div class="card-body">
+        <p class="float-right">
+          Dificultate: <%= lesson.difficulty %>/5
+        </p>
+        <h5 class="card-title"><%= lesson.name %></h5>
+        <p>
+          Postat de: <a href="/profile/<%= lesson.author.id %>"> <em><%= lesson.author.username %></em></a>
+            <br> <%= moment(lesson.createdAt).fromNow() %>
+        </p>
+        <hr>
+        <p class="card-text"><%= lesson.description %></p>
+        <% if(currentUser && lesson.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+        <a class="btn btn-warning" href="/lessons/<%= lesson._id %>/edit">Edit</a>
+        <form action="/lessons/<%= lesson._id %>?_method=DELETE" method="POST" class="delete-form">
+          <button class="btn btn-danger">Delete</button>
+        </form>
+        <% } %>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="text-right">
+          <a class="btn btn-success" href="/lessons/<%= lesson._id %>/comments/new">Adauga un comentariu nou</a>
+        </div>
+        <hr>
+        <div class="row">
+        <% lesson.comments.forEach(function(comment){ %>
+          <div class="col-md-12 mb-2">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-left">
+                  <p class="card-title"><strong><a href="/users/<%= comment.author.id %>"><%= comment.author.username %></strong></a></p>
+                  <p class="card-text"><%= comment.text %>
+                </div>
+                <div class="float-right">
+                  <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                  <div class="float-right">
+                  <a href="/lessons/<%= lesson._id %>/comments/<%= comment._id %>/edit" class="btn btn-sm btn-warning mr-2">EDIT</a>
+                    <form class="delete-form" action="/lessons/<%=lesson._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                      <button class="btn btn-sm btn-danger">DELETE</button>
+                    </form>
+                  </div>
+                  <% } %>
+                  <p class = "mt-2"> <%= moment(comment.createdAt).fromNow() %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<% include ../partials/footer %>

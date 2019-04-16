@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+<h1>Notificari</h1>
+
+ <div class="notificare-stil">
+	 <% allNotifications.forEach(function(notification) { %>
+	 <li>
+		 <a href="/lessons/<%= notification.follId %>">
+		 <strong><%= notification.username %></strong> a adaugat o lectie noua %>
+		 </a>
+	<% }); %>
+</li>
+
+</div>
+
+
+<% include ../partials/footer %>

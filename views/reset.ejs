@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+
+<div class ="container reset-page">
+<div class="row">
+	<div class="col-md-12">
+		<form action="/reset/<%= token %>" method="POST">
+		  <legend>Reseteaza Parola</legend>
+		  <div class="form-group">
+		    <label for="password">Parola noua</label>
+		    <input type="password" name="password" value="" placeholder="Parola noua" autofocus="autofocus" class="form-control"/>
+		  </div>
+		  <div class="form-group">
+		    <label for="confirm">Confirma Parola</label>
+		    <input type="password" name="confirm" value="" placeholder="Confirma parola" class="form-control"/>
+		  </div>
+		  <div class="form-group">
+		    <button type="submit" class="btn btn-primary">Schimba Parola</button>
+		  </div>
+		</form>
+	</div>
+</div>
+</div>
+
+<% include ./partials/footer %>

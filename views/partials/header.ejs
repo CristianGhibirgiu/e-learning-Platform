@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>webTuts</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+<!-- ==============================================================  -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="/">webTuts</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/lessons" class="nav-link">Acasa</a>
+        </li>
+
+        <p class = "search-bar">
+          <form action="/lessons" method="GET" class = "form-inline">
+            <div class = "form-group">
+              <input type="text" name = "search" placeholder="Ce vrei sa inveti?" class = "form-control" >
+              <input type="submit" value = "Search" class = "btn btn-primary ml-4">
+            </div>
+          </form>
+        </p>
+
+      </ul>
+      <ul class="navbar-nav">
+          <% if(!currentUser){ %>
+              <li class="nav-item">
+                <a href="/login" class="nav-link log-in">Login</a>
+              </li>
+              <li class="nav-item">
+                <a href="/register" class="nav-link sign-up">Sign Up</a>
+              </li>
+              <% } else { %>
+                  <li class=" nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notificari <span class="badge"><%= notifications.length %></span></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                          <a id = "all-notifications" href="/notifications">Toate notificarile</a>
+                      </li>
+                      <% notifications.forEach(function(notification) { %>
+                          <li>
+                              <a id = "new-notification" href="/notifications/<%= notification.id %>">
+                                  Profesorul <strong><%= notification.username %></strong> a adaugat o lectie noua
+                              </a>
+                          </li>
+                      <% }); %>
+                    </ul>
+                  </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">Conectat ca: <strong><%= currentUser.username %></strong></a>
+              </li>
+              <li class="nav-item">
+                <a href="/logout" class="nav-link">Logout</a>
+              </li>
+          <% } %>
+      </ul>
+    </div>
+  </nav>
+<!-- ==============================================================  -->
+<div class="container">
+   <% if(error && error.length > 0) { %>
+     <div class="alert alert-danger" role="alert"><%=error %></div>
+   <% } %>
+
+   <% if(success && success.length > 0) { %>
+     <div class="alert alert-success" role="alert"><%= success %></div>
+   <% } %>
+</div>
+<div class="container">

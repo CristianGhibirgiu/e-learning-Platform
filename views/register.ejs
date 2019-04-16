@@ -1,0 +1,43 @@
+<% include ./partials/header %>
+
+<div class = "container container-register">
+  <div class = "col-md-12 text-center">
+      <h1>Sign Up</h1>
+</div>
+<form action = "/register" method = "POST">
+  <div class="form-group">
+    <label for="InputUsername"><i class="fas fa-user pr-2"></i>Username</label>
+    <input type="text" name = "username" class="form-control" id="InputUsername" placeholder="Username">
+  </div>
+
+  <div class="form-group">
+    <label for="Password"><i class="fas fa-lock pr-2"></i>Password</label>
+    <input type="password" name = "password" class="form-control" id="Password" placeholder="Password">
+  </div>
+
+  <div class="form-group">
+    <label for="InputfirstName"><i class="fas fa-address-book pr-2"></i>First Name</label>
+    <input type="text" name = "firstName" class="form-control" id="InputfirstName" placeholder="First Name">
+  </div>
+
+  <div class="form-group">
+    <label for="InputlastName"><i class="fas fa-address-book pr-2"></i>Last Name</label>
+    <input type="text" name = "lastName" class="form-control" id="InputlastName" placeholder="Last Name">
+  </div>
+
+  <div class="form-group">
+    <label for="InputEmail"><i class="fas fa-envelope pr-2"></i>Email</label>
+    <input type="email" name = "email" class="form-control" id="InputEmail" placeholder="Email">
+  </div>
+
+  <div class="form-group">
+    <label for="InputAvatar"><i class="fas fa-images pr-2"></i>Avatar</label>
+    <input type="text" name = "avatar" class="form-control" id="InputAvatar" placeholder="Avatar URL">
+  </div>
+
+  <button type="submit" class="btn btn-danger btn-block">Sign Up</button>
+</form>
+</div>
+
+
+<% include ./partials/footer %>
